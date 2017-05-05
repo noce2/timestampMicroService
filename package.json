@@ -17,8 +17,8 @@
   },
   "homepage": "https://github.com/noce2/timestampMicroService#readme",
   "dependencies": {
-    "datejs": "^1.0.0-rc3",
-    "express": "^4.15.2"
+    "express": "^4.15.2",
+    "moment": "^2.18.1"
   },
   "devDependencies": {
     "eslint": "^3.19.0"
