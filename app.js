@@ -2,7 +2,7 @@ const express = require('express');
 const moment = require('moment');
 const path = require('path');
 
-const timestampMaker = require(path.resolve('./app/timestampMaker.js')).timestampMaker;
+const Timestamp = require(path.resolve('./app/timestamp.class.js')).Timestamp;
 
 const port = 3000;
 var myapp = express();
@@ -16,7 +16,7 @@ myapp.get('/',function(req,res){
 });
 
 myapp.get('/:what',function(req,res){
-    res.json(timestampMaker(req.params.what));
+    res.json(Timestamp.timestampMaker(req.params.what));
 });
 
 
