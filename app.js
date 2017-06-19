@@ -3,12 +3,13 @@ const path = require('path');
 
 const Timestamp = require(path.resolve('./app/timestamp.class.js')).Timestamp;
 
-const port = 3000;
+
 let myapp = express();
 
 
 myapp.use('/public', express.static(path.join(__dirname, 'public')));
 
+myapp.set('port', (process.env.PORT || 5000));
 myapp.set('views', './views');
 myapp.set('view engine', 'pug');
 
@@ -25,6 +26,6 @@ myapp.get('/:what', function(req, res) {
 
 /* START UP SERVER*/
 
-myapp.listen(port, function() {
-    // console.log(`Currently listening on port ${port}`);
+myapp.listen(myapp.get('port'), function() {
+    console.log(`Currently listening on port ${myapp.get('port')}`);
 });
