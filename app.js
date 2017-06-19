@@ -7,9 +7,15 @@ const port = 3000;
 let myapp = express();
 
 
+myapp.use('/public', express.static(path.join(__dirname, 'public')));
+
+myapp.set('views', './views');
+myapp.set('view engine', 'pug');
+
+
 /* ROUTING */
 myapp.get('/', function(req, res) {
-    res.send('Welcome to My Microservice');
+    res.render('index');
 });
 
 myapp.get('/:what', function(req, res) {
